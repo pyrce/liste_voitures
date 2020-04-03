@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <script
+      type="text/javascript"
+      src="http://www.carqueryapi.com/js/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="http://www.carqueryapi.com/js/carquery.0.3.4.js"
+    ></script>
+    <script>
+      $(document).ready(function() {
+        var carquery = new CarQuery();
+        carquery.init();
+        console.log(this.base_url);
+        carquery.initSearchInterface();
+
+        $.getJSON(
+          this.base_url + "?callback=?",
+          { cmd: "getMakes", year: "2009" },
+          function(data) {
+            console.log(data);
+            //The 'data' variable contains all response data.
+            var makes = data.Makes;
+            for (var i = 0; i < makes.length; i++) {
+              //You can now do what you like with the response data
+              console.log(makes[i].make_display);
+            }
+          }
+        );
+      });
+    </script>
+  </body>
+</html>

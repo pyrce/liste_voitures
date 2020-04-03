@@ -1,0 +1,88 @@
+[
+  {
+    "id": "1",
+    "marque": "renault",
+    "model": [
+      {
+        "id": "1",
+        "nom": "Renault megane",
+        "prix": "21600€",
+        "puissance": "115 ch",
+        "carburant": "essence"
+      },
+      {
+        "id": "2",
+        "nom": "Renault senic",
+        "prix": "27 600 €",
+        "puissance": "115 ch",
+        "carburant": "essence"
+      },
+      {
+        "id": "3",
+        "nom": "Renault kadjar",
+        "prix": "28 500 €",
+        "puissance": "140 ch",
+        "carburant": "essence"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "marque": "Peugoet",
+    "model": [
+      {
+        "id": "1",
+        "nom": "Peugeot 108",
+        "prix": "21600€",
+        "puissance": "72 ch",
+        "carburant": "essence",
+        "consomation": "4,8"
+      },
+      {
+        "id": "2",
+        "nom": "Peugeot 308 access",
+        "prix": "21 650 €",
+        "puissance": "110 ch",
+        "carburant": "essence",
+        "consomation": "5,5"
+      },
+      {
+        "id": "3",
+        "nom": "Peugeot 308 access",
+        "prix": "23 500 €",
+        "puissance": "100 ch",
+        "carburant": "diesel",
+        "consomation": "4,5"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "marque": "Citroen",
+    "model": [
+      {
+        "id": "1",
+        "nom": "Citroen C0",
+        "prix": "26900€",
+        "puissance": "N/A",
+        "carburant": "electrique"
+      },
+      {
+        "id": "2",
+        "nom": "Citroen C1 ",
+        "prix": "11 600 €",
+        "puissance": "68 ch",
+        "carburant": "essence",
+        "consomation": "3,8-5,10"
+      },
+      {
+        "id": "3",
+        "nom": "Citroen C4 Cactus",
+        "prix": "13 950 € à 28 150 €",
+        "puissance": "92 ch",
+        "carburant": "diesel",
+        "consomation": "3,20-4,10"
+      }
+    ]
+  }
+]
