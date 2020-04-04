@@ -7,9 +7,9 @@ var genreSchema = Schema(
       type: ObjectId,
       required: true
     },
-    nom: String,
-    color: String
+    model: String,
+    marque: String
   },
-  { collection: "genre" }
+  { collection: "historique" }
 );
-module.exports = mongoose.model("genre", genreSchema);
+module.exports = mongoose.model("historique", genreSchema);

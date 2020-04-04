@@ -35,6 +35,13 @@
 
 
 </div>
+
+<div i="recherche">
+<ul id="historiques">
+
+</ul>
+
+</div>
 <style>
 #header{
     width: 140%;
@@ -69,15 +76,14 @@ $.ajax({
     url:"/liste/",
 
     success:(data)=>{
-
 $("#marques").html("");
 data.forEach(d=>{
     $("#marques").append("<option value="+d.make_id+">"+d.make_display+"</option>")
 })
-    }
-   
+    } 
 })
 
+listehistorique();
 })
 
 $("#marques").on("change",()=>{
@@ -101,15 +107,20 @@ $.ajax({
 
         }
 })
-
+listehistorique();
+})
+$("historiques").on("load",()=>{
+  listehistorique();
 })
 
-
 $("#models").on("change", () => {
+  data={}
+  data["marque"]=$("#marques").val()
         $.ajax({
          url: "/getfiche/" +
             $("#models").val() ,
             type:"post",
+            data:data,
         success :  function(data) {
               console.log(data)
             //The 'data' variable contains all response data
@@ -123,5 +134,19 @@ $("#models").on("change", () => {
         }
         );
         $('#models').select2();
+        listehistorique();
       });
+
+      function listehistorique(){
+        $.ajax({
+    url:"/historiques/",
+
+    success:(data)=>{
+$("#historiques").html("");
+data.forEach(d=>{
+    $("#historiques").append("<li>"+d.marque+"-"+d.model+"</li>")
+})
+    } 
+})
+      }
 </script>

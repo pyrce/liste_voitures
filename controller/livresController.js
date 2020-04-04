@@ -1,6 +1,19 @@
 const controller = {};
 const fs = require("fs");
 const https= require("https");
+const mongoose=require("mongoose");
+const hist=require("../model/historique")
+
+var ObjectId=mongoose.Types.ObjectId;
+var base =
+  typeof process.env.MONGODB_URI != "undefined"
+    ? process.env.MONGODB_URI
+    : "mongodb://localhost:27017/listes_voitures";
+
+mongoose.connect(base, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 /**recupere la lsite des tuilisateurs et renvoie les donnes dans la vue
  * @version 1.0
  */
@@ -59,12 +72,26 @@ controller.getfiche = (req, res) => {
  
      datas.on('end', function(){
          var fbResponse = JSON.parse(body);
+         histo=new hist();
+         histo._id=new ObjectId();
+         histo.model=req.params.id;
+         histo.marque=req.body.marque;
+         histo.save();
+           res.send(fbResponse[0])
          
-        res.send(fbResponse[0])
+
+        
      });
    
      
    });
 };
 
+controller.historiques=(req, res)=>{
+
+hist.find({ }).sort({_id:-1}).limit(5).then((datas)=>{
+res.send(datas);
+})
+
+}
 module.exports = controller;
