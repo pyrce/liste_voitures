@@ -8,7 +8,8 @@ var genreSchema = Schema(
       required: true
     },
     model: String,
-    marque: String
+    marque: String,
+    date:Date
   },
   { collection: "historique" }
 );

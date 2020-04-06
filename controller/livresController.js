@@ -76,6 +76,7 @@ controller.getfiche = (req, res) => {
          histo._id=new ObjectId();
          histo.model=req.params.id;
          histo.marque=req.body.marque;
+         histo.date=new Date();
          histo.save();
            res.send(fbResponse[0])
          
