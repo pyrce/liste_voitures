@@ -71,6 +71,22 @@ margin-bottom: 20px;
         display: flex;
         flex-direction: row;
       }
+      #historiques{
+        background-color: #f7f7f9;
+list-style: none;
+padding:0;
+      }
+      li{
+        background-color:#c2c8cf;
+border-radius: 9px;
+margin-left: 10px;
+padding-left: 10px;
+margin-top: 5px;
+      }
+      #historiques span{
+        font-family:"QuickSand";
+      color:#f1efe2;
+      }
 
 </style>
 <%- include partials/script %>
@@ -108,7 +124,7 @@ $.ajax({
                   "</option>"
               );
             }
-
+            $("#models").select2();
         }
 })
 
@@ -132,11 +148,12 @@ $("#models").on("change", () => {
               );
             }
             $("#infos").css({ display: "flex", flexDirection: "column" });
+           
+        $("#historiques").load("#historiques");
           }
         }
         );
-        $('#models').select2();
-        $("#historiques").load("#historiques");
+    
       });
 
       function listehistorique(){
@@ -146,7 +163,9 @@ $("#models").on("change", () => {
     success:(data)=>{
 $("#historiques").html("");
 data.forEach(d=>{
-    $("#historiques").append("<li>"+d.marque+"-"+d.model+"</li>")
+  t=new Date(d.date);
+ date=typeof d.date!= "undefined" ? t.toLocaleDateString() : 'N/A'
+    $("#historiques").append("<li><span>"+date+"</span>:"+d.marque+"-"+d.model+"</li>")
 })
     } 
 })
