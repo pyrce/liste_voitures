@@ -107,7 +107,8 @@
 				},
 			});
 
-			listehistorique();
+      listehistorique();
+      $("#models").select2();
 		});
 
 		$("#marques").on("change", () => {
@@ -115,6 +116,7 @@
 				url: "/getinfo/" + $("#marques").val(),
 				type: "POST",
 				success: function (data) {
+          $("#models").html("");
 					//The 'data' variable contains all response data.
 					var makes = data.Trims;
 					for (var i = 0; i < makes.length; i++) {
@@ -128,7 +130,7 @@
 								"</option>"
 						);
 					}
-					$("#models").select2();
+	
 				},
 			});
 		});
