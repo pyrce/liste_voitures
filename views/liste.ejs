@@ -116,6 +116,7 @@
 					var makes = data.Trims;
 					for (var i = 0; i < makes.length; i++) {
 						//You can now do what you like with the response data
+						if (makes[i].model_trim === '') makes[i].model_trim = '<Nom du modèle non trouvé>';
 						$("#models").append(
 							"<option value=" +
 								makes[i].model_id +
